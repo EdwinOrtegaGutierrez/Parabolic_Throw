@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Eddy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-5.3.0-alpha1/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body data-bs-theme="dark">
+    <h1 class="display-1 text-center">Parabolic Throw</h1>
+    <hr>
+    <h2 class="text-center">Projectile Motion</h2>
+    <form class="container text-center" action="/" method="POST">
+        <div class="row">
+            <div class="col">        
+                <input class="form-control bg-dark" data-bs-theme="dark" type="number" name="velocity" placeholder="Velocity (m/s)" required>
+            </div>
+            <div class="col">        
+                <input class="form-control bg-dark" data-bs-theme="dark" type="number" name="angle" placeholder="Angle (°)" required>
+            </div>
+            <div class="col">        
+                <select class="form-control bg-dark" data-bs-theme="dark" name="gravity">
+                    <option value="">Gravity</option>
+                    <option value="mercury">Mercury: 3.7 m/s²</option>
+                    <option value="venus">Venus: 8.87 m/s²</option>
+                    <option value="earth">Earth: 9.81 m/s²</option>
+                    <option value="mars">Mars: 3.711 m/s²</option>
+                    <option value="jupiter">Jupiter: 24.79 m/s²</option>
+                    <option value="saturn">Saturn: 10.44 m/s²</option>
+                    <option value="uranus">Uranus: 8.69 m/s²</option>
+                    <option value="neptune">Neptune: 11.15 m/s²</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <input class="btn btn-outline-danger" type="submit" id="simulate" value="Simulate">
+    </form>
+
+    {% if g != 0 %}
+        <div class="container">
+            <h3>
+                Entered values:
+                <small>v0: {{ v0 }}, theta: {{ theta }}, g: {{ g }}</small>
+            </h3>
+            <h3>
+                Entered values:
+                <small>Flight time: {{tmax}} (s). Max range: {{rmax}} (m).</small>
+            </h3>
+
+            <canvas id="myChart"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="/static/js/graph.js"></script>
+        </div>
+    {% endif %}
+</body>
+</html>

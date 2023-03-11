@@ -1,2 +1,15 @@
-# Parabolic_Throw
-The code defines a function that calculates the trajectory of a projectile and stores the data in a JSON file. It is then used in a Flask web application to allow the user to input values for the projectile and display the time of flight and maximum range.
+# Parabolic Throw
+This is a **Python** program that uses **Flask** to create a web application for simulating the parabolic motion of a projectile. The program is divided into three parts:
+
+1. The first part defines a function called `function()` that calculates the parabolic motion of a projectile with an initial velocity `v0`, an angle `theta`, and a gravitational acceleration `g`. The function uses the math library to convert the angle to radians and calculate the components of the initial velocity. It then uses physical formulas to calculate the time of flight and the maximum range, and finally creates a list of dictionaries to store the position, velocity, and time values at each instant of time. The list of dictionaries is saved to a `JSON file` named pt.json.
+2. The second part defines a `Flask application` that loads the `data.json` file into a variable called `dataG`, which is used to obtain the gravitational acceleration selected by the user in the web interface. The Flask application also defines a `route /` that renders the `index.html` template. The index.html template defines a form that allows the user to input the initial velocity, angle, and gravitational acceleration of the projectile, and simulate the parabolic motion by clicking the `"Simulate"` button. The Flask application uses the function function to calculate the time of flight and the maximum range of the projectile, and then renders the index.html template with these values and the values entered by the user.
+3. The third part is the index.html template that defines the web interface for the user. The template defines a form that requests user input for the initial velocity, angle, and gravitational acceleration of the projectile, and a "Simulate" button to initiate the simulation. The template also displays the results of the simulation, including the time of flight and the maximum range of the projectile.
+
+The HTML template includes a form that allows the user to input the initial velocity, launch angle, and gravity of the selected planet in a dropdown menu. When the user submits the form, Flask calls the index() function that processes the input values, loads the gravity data from a JSON file, and calls the function() function from the ParabolicThrow module to perform the necessary calculations. The results are then displayed on the same page using the Jinja2 template engine.
+It is important to mention that the HTML template uses Bootstrap, a CSS design framework that allows for visually appealing and responsive web pages.
+
+In summary, this code refers to a web application called Parabolic Throw that simulates the parabolic motion of a projectile. The application uses Flask as a web server framework and Jinja2 as a template engine to generate dynamic HTML pages. The code implements a function function() that performs the necessary calculations to simulate the projectile's motion and uses the json module to save the results to a JSON file. Additionally, the HTML template uses Bootstrap for visually appealing and responsive design.
+
+## User Interface
+![GUI](/README/pt2.jpg)
+![GUI](/README/pt1.jpg)
